@@ -1,3 +1,4 @@
+import { Aside } from '@/components/Aside'
 import Head from 'next/head'
 import Image from 'next/image'
 
@@ -14,12 +15,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <aside className="">
-        aside
-      </aside>
-      <main className="">
-        main
-      </main>
+      <section className="grid grid-cols-2 min-h-screen px-10 relative ">
+        <aside className="flex flex-col gap-12 sticky top-0 h-screen p-20 border-white border-solid border">
+          <Aside />
+        </aside>
+        <main className="p-10">
+
+        </main>
+      </section>
     </>
   )
 }
