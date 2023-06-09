@@ -14,29 +14,34 @@ export const Aside = () => {
         </header>
         <nav>
           <ul>
-            <li className='text-xl text-purple-200 font-bold flex items-center gap-2'>
-              <div className='bg-purple-200 font-bold w-20 h-[1.5px] rounded-full'></div>
+            <li className='link group'>
+              <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
               Sobre mim
             </li>
-            <li className='text-xl text-purple-600 flex items-center gap-2'>
-              <div className='bg-purple-600 font-bold w-12 h-[1.5px] rounded-full'></div>
+            <li className='link group'>
+              <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
               Minhas habilidades
             </li>
-            <li className='text-xl text-purple-600 flex items-center gap-2'>
-              <div className='bg-purple-600 font-bold w-12 h-[1.5px] rounded-full'></div>
+            <li className='link group'>
+              <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
               Meus projetos
             </li>
-            <li className='text-xl text-purple-600 flex items-center gap-2'>
-              <div className='bg-purple-600 font-bold w-12 h-[1.5px] rounded-full'></div>
+            <li className='link group'>
+              <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
               Contatos
             </li>
           </ul>
         </nav>
         <footer className='flex gap-8'>
-          <img src='/icons/github.svg' alt="" className=" text-red-700 h-10 w-10" />
-          <img src='/icons/linkedin.svg' alt=""  className=" text-red-700 h-10 w-10"/>
-          <img src='/icons/portfolio.svg' alt=""  className=" text-red-700 h-10 w-10"/>
-
+          <a href="https://github.com/Yancap">
+            <img src='/icons/github.svg' alt="" className=" h-10 w-10 cursor-pointer transition-all hover:scale-110" />
+          </a>
+          <a href="https://www.linkedin.com/in/yangabriel/">
+            <img src='/icons/linkedin.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+          </a>
+          <a href="https://yangabriel.netlify.app/">
+            <img src='/icons/portfolio.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+          </a>
         </footer>
     </>
   )     
