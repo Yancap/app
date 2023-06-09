@@ -4,7 +4,7 @@
 
 @layer component{
     .link{
-        @apply text-xl text-purple-600 flex items-center gap-2 cursor-pointer w-max;
+        @apply text-xl text-purple-600 ;
     }
     .link:hover{
         @apply text-purple-200 font-bold;
@@ -12,7 +12,6 @@
     .link-active{
         @apply text-purple-200 font-bold;
     }
-
     .link-details{
         @apply bg-purple-600 transition-all duration-500 font-bold w-12 h-[1.5px] rounded-full;
     }

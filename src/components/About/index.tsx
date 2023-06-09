@@ -3,7 +3,7 @@ import React from 'react'
 export const About = () => {
   return (
     <article>
-        <p className='text-base text-white'>
+        <p className='text-base text-white' id='about'>
         Olá, me chamo Yan Gabriel Ferreira e busco minha inserção no mercado de trabalho 
         na área de tecnologia, com o objetivo de desenvolver minhas competências técnicas 
         e comportamentais. 

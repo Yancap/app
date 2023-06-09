@@ -3,7 +3,7 @@ import { Tech } from './Tech'
 
 export const Hability = () => {
   return (
-    <section className='flex flex-col gap-4'>
+    <section className='flex flex-col gap-4' id='hability'>
         <h2 className='text-purple-200 font-bold text-3xl'>
             Habilidades Técnicas
         </h2>

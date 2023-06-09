@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { MouseEvent, useEffect, useState } from 'react'
 import github from '../../../public/icons/github.svg'
+import SmoothScroll from '@/components/Aside/SmothScroll'
 
 export const Aside = () => {
+  const [scroll, setScroll] = useState<SmoothScroll>()
+  function handleNav({currentTarget}: MouseEvent){
+    const anchor = currentTarget as HTMLAnchorElement
+    const id = anchor.dataset?.target as string
+    console.log(scroll?.elementHeight);
+    scroll?.scroll(id)
+  }
+  useEffect( ()=>{
+    setScroll(new SmoothScroll(["#about", "#hability", "#project", "#contact"]))
+  }, [])
   return (
     <>
         <header>
@@ -13,24 +24,32 @@ export const Aside = () => {
             </h3>
         </header>
         <nav>
-          <ul>
-            <li className='link group'>
+            <a className='flex items-center gap-2 cursor-pointer w-max group' data-target='#about' onClick={handleNav}>
               <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
-              Sobre mim
-            </li>
-            <li className='link group'>
+              <span className='link' >
+                Sobre mim 
+              </span>
+              
+            </a>
+            <a className='flex items-center gap-2 cursor-pointer w-max group' data-target='#hability' onClick={handleNav}>
               <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
-              Minhas habilidades
-            </li>
-            <li className='link group'>
+              <span className='link'>
+                Minhas habilidades
+              </span>
+            </a>
+            <a className='flex items-center gap-2 cursor-pointer w-max group' data-target='#project' onClick={handleNav}>
               <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
-              Meus projetos
-            </li>
-            <li className='link group'>
+              <span className='link'>
+                Meus projetos
+              </span>
+              
+            </a>
+            <a className='flex items-center gap-2 cursor-pointer w-max group' data-target='#contact' onClick={handleNav}>
               <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
-              Contatos
-            </li>
-          </ul>
+              <span className='link'>
+                Contatos
+              </span>
+            </a>
         </nav>
         <footer className='flex gap-8'>
           <a href="https://github.com/Yancap">

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Contact = () => {
   return (
-    <footer className='flex flex-col gap-5'>
+    <footer className='flex flex-col gap-5' id='contact'>
         <h2 className='text-purple-200 font-bold text-3xl'>
             Contatos
         </h2>

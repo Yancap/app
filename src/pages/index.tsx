@@ -23,7 +23,7 @@ export default function Home() {
         <aside className="flex flex-col gap-12 sticky top-0 h-screen py-20 pl-20">
           <Aside />
         </aside>
-        <main className="flex flex-col gap-20 py-20 pr-20">
+        <main className="flex flex-col gap-20 py-20 pr-20 scroll-smooth">
           <About />
           <Hability />
           <Projects />

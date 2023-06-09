@@ -4,7 +4,7 @@ import styles from './scroll.module.css'
 
 export const Projects = () => {
   return (
-    <section className='flex flex-col gap-4'> 
+    <section className='flex flex-col gap-4' id='project'> 
         <h2 className='text-purple-200 font-bold text-3xl'>
             Meus Projetos
         </h2>
