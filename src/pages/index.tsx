@@ -19,11 +19,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="grid grid-cols-2 min-h-screen px-10 relative">
-        <aside className="flex flex-col gap-12 sticky top-0 h-screen py-20 pl-20">
+      <section className="grid gap-20 sm:gap-0 sm:grid-cols-2 sm:min-h-screen px-10 relative">
+        <aside className="flex flex-col gap-12 sm:sticky top-0 pt-20 pl-0 sm:h-screen sm:py-20 xl:pl-20 lg:pl-10">
           <Aside />
         </aside>
-        <main className="flex flex-col gap-20 py-20 pr-20 scroll-smooth">
+        <main className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10">
           <About />
           <Hability />
           <Projects />

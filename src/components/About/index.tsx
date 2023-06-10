@@ -2,7 +2,10 @@ import React from 'react'
 
 export const About = () => {
   return (
-    <article>
+    <article className='flex flex-col gap-4'>
+        <h2 className='text-purple-200 font-bold text-xl sm:text-3xl sm:hidden border-b-2 border-purple-800 pb-2'>
+            Sobre mim
+        </h2>
         <p className='text-base text-white' id='about'>
         Olá, me chamo Yan Gabriel Ferreira e busco minha inserção no mercado de trabalho 
         na área de tecnologia, com o objetivo de desenvolver minhas competências técnicas 

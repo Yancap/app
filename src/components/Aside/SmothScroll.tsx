@@ -16,7 +16,7 @@ export default class SmoothScroll {
     }
     
     scroll(id: string){
-        this.elementHeight.forEach(element => {
+        this.elementHeight.forEach((element, index) => {
             if (element?.element === id) {
                 window.scroll({ top: element.top, behavior: 'smooth'})
                 return

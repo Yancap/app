@@ -5,10 +5,10 @@ import styles from './scroll.module.css'
 export const Projects = () => {
   return (
     <section className='flex flex-col gap-4' id='project'> 
-        <h2 className='text-purple-200 font-bold text-3xl'>
+        <h2 className='text-purple-200 font-bold text-xl sm:text-3xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
             Meus Projetos
         </h2>
-        <div className={'overflow-auto h-[40rem] grid gap-2 ' + styles.scrollbar}>
+        <div className={'sm:overflow-auto sm:h-[40rem] grid gap-2 overflow-x-hidden' + styles.scrollbar}>
             <Project 
                 title='Projeto Pizzascript'
                 text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. 

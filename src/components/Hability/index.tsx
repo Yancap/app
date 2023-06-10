@@ -4,7 +4,7 @@ import { Tech } from './Tech'
 export const Hability = () => {
   return (
     <section className='flex flex-col gap-4' id='hability'>
-        <h2 className='text-purple-200 font-bold text-3xl'>
+        <h2 className='text-purple-200 font-bold text-xl sm:text-3xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
             Habilidades Técnicas
         </h2>
         <div className='flex flex-wrap gap-4'>

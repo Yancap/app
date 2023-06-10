@@ -6,8 +6,16 @@ export const Aside = () => {
   const [scroll, setScroll] = useState<SmoothScroll>()
   function handleNav({currentTarget}: MouseEvent){
     const anchor = currentTarget as HTMLAnchorElement
+    const anchors = document.querySelectorAll('a[data-target]')
+    for(var i = 0; i < anchors.length; i++){
+      anchors[i].querySelector('span')?.classList.remove('link-active')
+      anchors[i].querySelector('div')?.classList.remove('link-details-active')
+    }
+    anchor.querySelector('span')?.classList.add('link-active')
+    anchor.querySelector('div')?.classList.add('link-details-active')
+
     const id = anchor.dataset?.target as string
-    console.log(scroll?.elementHeight);
+    anchor.classList.add()
     scroll?.scroll(id)
   }
   useEffect( ()=>{
@@ -25,8 +33,8 @@ export const Aside = () => {
         </header>
         <nav>
             <a className='flex items-center gap-2 cursor-pointer w-max group' data-target='#about' onClick={handleNav}>
-              <div className='link-details group-hover:w-20 group-hover:bg-purple-200'></div>
-              <span className='link' >
+              <div className='link-details link-details-active group-hover:w-20 group-hover:bg-purple-200'></div>
+              <span className='link link-active' >
                 Sobre mim 
               </span>
               
