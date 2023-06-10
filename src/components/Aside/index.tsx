@@ -63,13 +63,13 @@ export const Aside = () => {
         </nav>
         <footer className='flex gap-8'>
           <a href="https://github.com/Yancap">
-            <Image src='/icons/github.svg' alt="" className=" h-10 w-10 cursor-pointer transition-all hover:scale-110" />
+            <Image width={40} height={40} src='/icons/github.svg' alt="" className=" h-10 w-10 cursor-pointer transition-all hover:scale-110" />
           </a>
           <a href="https://www.linkedin.com/in/yangabriel/">
-            <Image src='/icons/linkedin.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+            <Image width={40} height={40} src='/icons/linkedin.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
           </a>
           <a href="https://yangabriel.netlify.app/">
-            <Image src='/icons/portfolio.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+            <Image width={40} height={40} src='/icons/portfolio.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
           </a>
         </footer>
     </>
