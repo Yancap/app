@@ -4,10 +4,10 @@ interface IElementHeight{
 }
 
 export default class SmoothScroll {
-    elements: (Element | null)[];
-    elementHeight: (IElementHeight | undefined)[];
+    static elements: (Element | null)[];
+    static elementHeight: (IElementHeight | undefined)[];
     
-    constructor(elementsId: string[]){
+    static init(elementsId: string[]){
         this.elements = elementsId.map(id => document.querySelector(id))
         this.elementHeight = this.elements.map((element, index) => ({ 
             top: element ? element.getBoundingClientRect().top - 80 : undefined,
@@ -15,12 +15,14 @@ export default class SmoothScroll {
         }));
     }
     
-    scroll(id: string){
-        this.elementHeight.forEach((element, index) => {
+    static scroll(id: string){
+        this.elementHeight.forEach((element) => {
             if (element?.element === id) {
                 window.scroll({ top: element.top, behavior: 'smooth'})
                 return
             }
         })
     }
+
+    
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import {  MouseEvent } from 'react'
 
 interface Tech{
     text: string;
@@ -14,11 +14,22 @@ interface ProjectProps{
     techs?: Tech[];
 }
 
+
+
 export const Project = ({image, github, src, title, text, techs}: ProjectProps) => {
+    function handleRedirect(event: MouseEvent){
+        const target = event.target !== event.currentTarget.querySelector('a') && 
+        event.target !== event.currentTarget.querySelector('a')?.querySelector('img')
+        if (target && src) {
+            window.location.assign(src)
+        }
+    }
   return (
-    <div className='flex flex-col sm:grid sm:grid-cols-8 cursor-pointer px-4 py-3 opacity-60 gap-x-6 gap-y-4 rounded-lg transition-all hover:bg-purple-600/5 hover:opacity-100'>
-        <div className='bg-white col-span-3 rounded order-3 h-24 w-36 sm:h-[initial] sm:2-[initial]'>
-            <img src={image} alt={title} />
+    <div className='flex flex-col sm:grid sm:grid-cols-8 cursor-pointer px-4 py-3 opacity-60 gap-x-6 gap-y-4 rounded-lg transition-all hover:bg-purple-600/5 hover:opacity-100'
+        onClick={handleRedirect} data-project
+    >
+        <div className='grid bg-white place-items-center col-span-3 rounded order-3 h-28 w-48 overflow-hidden sm:h-[initial] sm:min-h-[5.5rem] sm:w-[initial]'>
+            <img src={`/project/${image}`} alt={title} className='h-full w-auto'/>
         </div>
         <article className='col-span-5 flex flex-col justify-start order-2'>
             <h3 className='text-lg font-medium text-purple-100 line-clamp-2'>
@@ -41,12 +52,14 @@ export const Project = ({image, github, src, title, text, techs}: ProjectProps) 
             ))
             }
         </div>
-        <footer className='flex sm:col-span-8 justify-end order-4'>
-            <a href={github} className='cursor-pointer relative z-10 font-medium text-red-400 flex items-center gap-2 transition-all hover:scale-105'>
+        <footer className='flex sm:col-span-8 justify-end order-4 '>
+            {github &&
+            <a href={github} target='_blank' className='cursor-pointer relative z-10 font-medium text-red-400 flex items-center gap-2 transition-all hover:scale-105'>
                 <img src="/icons/github.svg" alt="" className='h-[18px]'/>
                 Acessar Github
                 <img src="/utils/arrow-diagonal.svg" alt="" className='h-[8px]'/>
             </a>
+            }
         </footer>
     </div>
   )

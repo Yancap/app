@@ -1,9 +1,10 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import github from '../../../public/icons/github.svg'
-import SmoothScroll from '@/components/Aside/SmothScroll'
+import SmoothScroll from '@/scripts/SmothScroll'
 
 export const Aside = () => {
-  const [scroll, setScroll] = useState<SmoothScroll>()
+
+
   function handleNav({currentTarget}: MouseEvent){
     const anchor = currentTarget as HTMLAnchorElement
     const anchors = document.querySelectorAll('a[data-target]')
@@ -16,10 +17,10 @@ export const Aside = () => {
 
     const id = anchor.dataset?.target as string
     anchor.classList.add()
-    scroll?.scroll(id)
+    SmoothScroll.scroll(id)
   }
-  useEffect( ()=>{
-    setScroll(new SmoothScroll(["#about", "#hability", "#project", "#contact"]))
+  useEffect(()=>{
+    SmoothScroll.init(["#about", "#hability", "#project", "#contact"])
   }, [])
   return (
     <>
