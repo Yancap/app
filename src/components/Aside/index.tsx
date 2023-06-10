@@ -1,6 +1,7 @@
 import React, { MouseEvent, useEffect, useState } from 'react'
 import github from '../../../public/icons/github.svg'
 import SmoothScroll from '@/scripts/SmothScroll'
+import Image from 'next/image'
 
 export const Aside = () => {
 
@@ -62,13 +63,13 @@ export const Aside = () => {
         </nav>
         <footer className='flex gap-8'>
           <a href="https://github.com/Yancap">
-            <img src='/icons/github.svg' alt="" className=" h-10 w-10 cursor-pointer transition-all hover:scale-110" />
+            <Image src='/icons/github.svg' alt="" className=" h-10 w-10 cursor-pointer transition-all hover:scale-110" />
           </a>
           <a href="https://www.linkedin.com/in/yangabriel/">
-            <img src='/icons/linkedin.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+            <Image src='/icons/linkedin.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
           </a>
           <a href="https://yangabriel.netlify.app/">
-            <img src='/icons/portfolio.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
+            <Image src='/icons/portfolio.svg' alt=""  className=" h-10 w-10 cursor-pointer transition-all hover:scale-110"/>
           </a>
         </footer>
     </>
