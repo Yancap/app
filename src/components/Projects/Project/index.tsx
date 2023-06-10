@@ -41,7 +41,7 @@ export const Project = ({image, github, src, title, text, techs}: ProjectProps) 
         </article>
         <div className='flex col-span-8 gap-2 flex-wrap order-3'>
             {techs?.map(tech => (
-                <div className='bg-red-700/10 box-content rounded-full flex items-center justify-center gap-2 h-5 w-fit py-1 px-2'>
+                <div key={tech.text} className='bg-red-700/10 box-content rounded-full flex items-center justify-center gap-2 h-5 w-fit py-1 px-2'>
                     { tech.image &&
                         <img src={`/tech/${tech.image}.svg`} alt="" className="h-[18px] w-auto cursor-pointer" />
                     }
