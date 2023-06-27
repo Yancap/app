@@ -65,7 +65,20 @@ export const Projects = () => {
                 src='https://yangabriel.netlify.app/'
                 github='https://github.com/Yancap/resume-react'
             />
-            <Project  image='spotify.png'
+            <Project image='facebook.jpg'
+                title='Clone do Facebook com Tailwind e NextJS'
+                text='Projeto feito em NextJS e Tailwind, é um site que copia o layout da Facebook, 
+                com o objetivo de testar meus conhecimentos em TailwindCSS e suas diretivas.'
+                techs={[
+                    {text: 'NextJS', image: 'nextjs',},
+                    {text: 'React', image: 'react',},
+                    {text: 'Typescript', image: 'typescript',},
+                    {text: 'TailwindCSS', image: 'tailwindcss',},
+                ]}
+                src='https://yfacebook.netlify.app/'
+                github='https://github.com/Yancap/tailwind-facebook'
+            />
+            <Project image='spotify.jpg'
                 title='Clone do Spotify com Tailwind e NextJS'
                 text='Projeto feito em NextJS e Tailwind, é um site que copia o layout da Spotify, 
                 com o objetivo de testar meus conhecimentos em TailwindCSS e suas diretivas.'
@@ -75,8 +88,8 @@ export const Projects = () => {
                     {text: 'Typescript', image: 'typescript',},
                     {text: 'TailwindCSS', image: 'tailwindcss',},
                 ]}
-                src='https://github.com/Yancap/site-animais-projeto-origamid'
-                github='https://github.com/Yancap/site-animais-projeto-origamid'
+                src='https://e-spotify.netlify.app/'
+                github='https://github.com/Yancap/projeto-spotify-com-tailwind'
             />
             <Project image='artech.png'
                 title='Página de Artigos'
@@ -261,19 +274,7 @@ export const Projects = () => {
                 src='https://yangabriel.netlify.app/'
                 github='https://github.com/Yancap/resume-react'
             />
-            <Project image='spotify.jpg'
-                title='Clone do Spotify com Tailwind e NextJS'
-                text='Projeto feito em NextJS e Tailwind, é um site que copia o layout da Spotify, 
-                com o objetivo de testar meus conhecimentos em TailwindCSS e suas diretivas.'
-                techs={[
-                    {text: 'NextJS', image: 'nextjs',},
-                    {text: 'React', image: 'react',},
-                    {text: 'Typescript', image: 'typescript',},
-                    {text: 'TailwindCSS', image: 'tailwindcss',},
-                ]}
-                src='https://github.com/Yancap/site-animais-projeto-origamid'
-                github='https://github.com/Yancap/site-animais-projeto-origamid'
-            />
+            
             <Project 
                 image='artech.png'
                 title='Página de Artigos'
@@ -311,6 +312,19 @@ export const Projects = () => {
                 src='https://ymoney.netlify.app/'
                 github='https://github.com/Yancap/projeto-blog-client'
             />
+            <Project image='facebook.jpg'
+                title='Clone do Facebook com Tailwind e NextJS'
+                text='Projeto feito em NextJS e Tailwind, é um site que copia o layout da Facebook, 
+                com o objetivo de testar meus conhecimentos em TailwindCSS e suas diretivas.'
+                techs={[
+                    {text: 'NextJS', image: 'nextjs',},
+                    {text: 'React', image: 'react',},
+                    {text: 'Typescript', image: 'typescript',},
+                    {text: 'TailwindCSS', image: 'tailwindcss',},
+                ]}
+                src='https://yfacebook.netlify.app/'
+                github='https://github.com/Yancap/tailwind-facebook'
+            />
             <Project 
                 image='login.png'
                 title='Projeto Login'
@@ -326,6 +340,19 @@ export const Projects = () => {
                 ]}
                 src='https://login-node-react.netlify.app/'
                 github='https://github.com/Yancap/projeto-login-node-react'
+            />
+            <Project image='spotify.jpg'
+                title='Clone do Spotify com Tailwind e NextJS'
+                text='Projeto feito em NextJS e Tailwind, é um site que copia o layout da Spotify, 
+                com o objetivo de testar meus conhecimentos em TailwindCSS e suas diretivas.'
+                techs={[
+                    {text: 'NextJS', image: 'nextjs',},
+                    {text: 'React', image: 'react',},
+                    {text: 'Typescript', image: 'typescript',},
+                    {text: 'TailwindCSS', image: 'tailwindcss',},
+                ]}
+                src='https://e-spotify.netlify.app/'
+                github='https://github.com/Yancap/projeto-spotify-com-tailwind'
             />
             <Project 
                 image='pizzascript.png'
