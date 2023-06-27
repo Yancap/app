@@ -1,0 +1,24 @@
+{
+  "id": "tech",
+  "label": "tech",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "tech": {
+        "type": "Text",
+        "config": { "label": "tech", "placeholder": "" }
+      },
+      "text": {
+        "type": "Text",
+        "config": { "label": "text", "placeholder": "" }
+      },
+      "order": {
+        "type": "Number",
+        "config": { "label": "order", "placeholder": "" }
+      }
+    }
+  }
+}

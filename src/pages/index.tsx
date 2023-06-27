@@ -29,7 +29,7 @@ export interface ProjectsProps {
 }
 
 export default function Home({projectsPersonal, projectsGroup}: ProjectsProps) {
-  console.log(projectsGroup);
+  
   return (
     <>
       <Head>
@@ -68,7 +68,7 @@ export const getStaticProps: GetStaticProps = async () => {
       pageSize: 50
   })
   
-  const projects = response.reverse().map(response => {
+  const projects = response.map(response => {
     const content = response.data
     return {
       id: response.uid,

@@ -1,0 +1,15 @@
+{
+  "id": "about",
+  "label": "about",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "text": {
+        "type": "Text",
+        "config": { "label": "text", "placeholder": "" }
+      }
+    }
+  }
+}

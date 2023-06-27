@@ -5,6 +5,31 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = {
   [KeyType in keyof T]: T[KeyType];
 };
+/** Content for about documents */
+interface AboutDocumentData {
+  /**
+   * text field in *about*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  text: prismic.KeyTextField;
+}
+/**
+ * about document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, "about", Lang>;
 /** Content for project documents */
 interface ProjectDocumentData {
   /**
@@ -126,7 +151,54 @@ export type ProjectDocument<Lang extends string = string> =
     "project",
     Lang
   >;
-export type AllDocumentTypes = ProjectDocument;
+/** Content for tech documents */
+interface TechDocumentData {
+  /**
+   * tech field in *tech*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tech.tech
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  tech: prismic.KeyTextField;
+  /**
+   * text field in *tech*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tech.text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  text: prismic.KeyTextField;
+  /**
+   * order field in *tech*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tech.order
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  order: prismic.NumberField;
+}
+/**
+ * tech document from Prismic
+ *
+ * - **API ID**: `tech`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/core-concepts/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type TechDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<TechDocumentData>, "tech", Lang>;
+export type AllDocumentTypes = AboutDocument | ProjectDocument | TechDocument;
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -136,9 +208,13 @@ declare module "@prismicio/client" {
   }
   namespace Content {
     export type {
+      AboutDocumentData,
+      AboutDocument,
       ProjectDocumentData,
       ProjectDocumentDataTechsItem,
       ProjectDocument,
+      TechDocumentData,
+      TechDocument,
       AllDocumentTypes,
     };
   }
