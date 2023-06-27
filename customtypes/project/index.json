@@ -1,0 +1,57 @@
+{
+  "id": "project",
+  "label": "project",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": { "config": { "label": "UID" }, "type": "UID" },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "text": {
+        "type": "Text",
+        "config": { "label": "text", "placeholder": "" }
+      },
+      "techs": {
+        "type": "Group",
+        "config": {
+          "label": "techs",
+          "fields": {
+            "tech": {
+              "type": "Text",
+              "config": { "label": "text", "placeholder": "" }
+            },
+            "image": {
+              "type": "Text",
+              "config": { "label": "image", "placeholder": "" }
+            }
+          }
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": { "label": "image", "constraint": {}, "thumbnails": [] }
+      },
+      "src": {
+        "type": "Link",
+        "config": { "label": "src", "placeholder": "", "select": null }
+      },
+      "github": {
+        "type": "Link",
+        "config": { "label": "github", "placeholder": "", "select": null }
+      },
+      "type": {
+        "type": "Text",
+        "config": { "label": "type", "placeholder": "" }
+      }
+    }
+  }
+}
