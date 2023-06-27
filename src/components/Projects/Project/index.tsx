@@ -1,23 +1,16 @@
+import { ProjectProps } from '@/pages';
 import Image from 'next/image';
 import {  MouseEvent } from 'react'
 
-interface Tech{
-    text: string;
-    image?: string;
-}
 
-interface ProjectProps{
-    image?: string;
-    github?: string;
-    src?: string;
-    title: string;
-    text: string;
-    techs?: Tech[];
+interface P {
+    project: ProjectProps
 }
 
 
 
-export const Project = ({image, github, src, title, text, techs}: ProjectProps) => {
+export const Project = ({project}: P) => {
+    const {image, github, src, title, text, techs} = project
     function handleRedirect(event: MouseEvent){
         const target = event.target !== event.currentTarget.querySelector('a') && 
         event.target !== event.currentTarget.querySelector('a')?.querySelector('img')
@@ -30,7 +23,7 @@ export const Project = ({image, github, src, title, text, techs}: ProjectProps) 
         onClick={handleRedirect} data-project
     >
         <div className='grid bg-white place-items-center col-span-3 rounded order-3 h-28 w-48 overflow-hidden sm:h-[initial] sm:min-h-[5.5rem] sm:w-[initial]'>
-            <Image width={1200} height={800} src={`/project/${image}`} alt={title} className='h-full w-auto'/>
+            <img  src={image.src} alt={image.alt} className='h-full w-auto'/>
         </div>
         <article className='col-span-5 flex flex-col justify-start order-2'>
             <h3 className='text-lg font-medium text-purple-100 line-clamp-2'>
@@ -42,12 +35,12 @@ export const Project = ({image, github, src, title, text, techs}: ProjectProps) 
         </article>
         <div className='flex col-span-8 gap-2 flex-wrap order-3'>
             {techs?.map(tech => (
-                <div key={tech.text} className='bg-red-700/10 box-content rounded-full flex items-center justify-center gap-2 h-5 w-fit py-1 px-2'>
+                <div key={tech.tech} className='bg-red-700/10 box-content rounded-full flex items-center justify-center gap-2 h-5 w-fit py-1 px-2'>
                     { tech.image &&
                         <Image width={18} height={18} src={`/tech/${tech.image}.svg`} alt="" className="h-[1.15rem] w-auto cursor-pointer" />
                     }
                     <span className='font-medium text-red-400 text-[14px]'>
-                        {tech.text}
+                        {tech.tech}
                     </span>
                 </div>
             ))

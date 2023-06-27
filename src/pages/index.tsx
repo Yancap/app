@@ -3,13 +3,37 @@ import { Aside } from '@/components/Aside'
 import { Contact } from '@/components/Contact'
 import { Hability } from '@/components/Hability'
 import { Projects } from '@/components/Projects'
+import { getPrismicClient } from '@/services/prismic'
+import { GetStaticProps } from 'next'
+import { RichText } from 'prismic-dom'
 import Head from 'next/head'
 
+interface TechsProjects{
+  tech: string;
+  image?: string;
+}
 
-export default function Home() {
+export interface ProjectProps {
+      id: string;
+      title: string;
+      text: string;
+      techs: TechsProjects[],
+      image: { alt: string; src: string; },
+      src: string | null;
+      github: string | null;
+}
+
+export interface ProjectsProps {
+  projectsPersonal: ProjectProps[];
+  projectsGroup: ProjectProps[];
+}
+
+export default function Home({projectsPersonal, projectsGroup}: ProjectsProps) {
+  console.log(projectsGroup);
   return (
     <>
       <Head>
+        
         <title>Portfolio | Yan</title>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin='use-credentials' />
@@ -25,10 +49,43 @@ export default function Home() {
         <main className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10">
           <About />
           <Hability />
-          <Projects />
+          <Projects projects={{projectsPersonal, projectsGroup}}/>
           <Contact />
         </main>
       </section>
     </>
   )
+}
+interface Link {
+  link_type: string;
+  url?: string;
+}
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient()
+  const response = await prismic.getAllByType("project",
+  {
+      fetch: [], 
+      pageSize: 50
+  })
+  
+  const projects = response.reverse().map(response => {
+    const content = response.data
+    return {
+      id: response.uid,
+      title: RichText.asText(content.title),
+      text: content.text,
+      techs: content.techs,
+      image: { alt: content.image.alt, src: content.image.url },
+      src: (content.src as Link)?.url || null,
+      github: (content.github as Link)?.url || null,
+      type: content.type,
+    }
+  })
+  const projectsPersonal = projects.filter(project => project.type === 'personal')
+  const projectsGroup = projects.filter(project => project.type === 'group')
+  
+  
+  return {
+    props: { projectsPersonal, projectsGroup }
+  }
 }
