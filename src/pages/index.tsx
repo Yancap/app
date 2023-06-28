@@ -20,15 +20,20 @@ export interface ProjectProps {
       techs: TechsProjects[],
       image: { alt: string; src: string; },
       src: string | null;
-      github: string | null;
+      github: string | null; 
 }
-
-export interface ProjectsProps {
+export interface AboutProps{
+  text: string;
+}
+export interface ServerProps {
   projectsPersonal: ProjectProps[];
   projectsGroup: ProjectProps[];
+  about: AboutProps;
 }
 
-export default function Home({projectsPersonal, projectsGroup}: ProjectsProps) {
+export type ProjectsProps = Omit<ServerProps, "about">;
+
+export default function Home({projectsPersonal, projectsGroup, about}: ServerProps) {
   
   return (
     <>
@@ -47,7 +52,7 @@ export default function Home({projectsPersonal, projectsGroup}: ProjectsProps) {
           <Aside />
         </aside>
         <main className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10">
-          <About />
+          <About about={about}/>
           <Hability />
           <Projects projects={{projectsPersonal, projectsGroup}}/>
           <Contact />
@@ -62,13 +67,37 @@ interface Link {
 }
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
-  const response = await prismic.getAllByType("project",
+  
+  const responseProject = await prismic.getAllByType("project",
   {
       fetch: [], 
       pageSize: 50
   })
+
+  const responseTechs = await prismic.getAllByType("project",
+  {
+      fetch: [], 
+      pageSize: 50
+  })
+
+  const {results: responseAbout} = await prismic.getByType("about",
+  {
+      fetch: [], 
+      pageSize: 50
+  })
+
   
-  const projects = response.map(response => {
+  const [about] = responseAbout.map((response) => {
+    return {
+      text: RichText.asHtml(response.data.text)
+        .replace(/<p>/g, "<p class='text-base text-white' id='about'>")
+        .replace(/<strong>/g, "<strong class='text-red-600 font-medium'>")
+    }
+  })
+
+  console.log(about);
+  
+  const projects = responseProject.map(response => {
     const content = response.data
     return {
       id: response.uid,
@@ -86,6 +115,6 @@ export const getStaticProps: GetStaticProps = async () => {
   
   
   return {
-    props: { projectsPersonal, projectsGroup }
+    props: { projectsPersonal, projectsGroup, about }
   }
 }

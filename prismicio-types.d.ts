@@ -10,14 +10,14 @@ interface AboutDocumentData {
   /**
    * text field in *about*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
    * - **API ID Path**: about.text
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   * - **Documentation**: https://prismic.io/docs/core-concepts/rich-text-title
    *
    */
-  text: prismic.KeyTextField;
+  text: prismic.RichTextField;
 }
 /**
  * about document from Prismic

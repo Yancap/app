@@ -7,8 +7,13 @@
   "json": {
     "Main": {
       "text": {
-        "type": "Text",
-        "config": { "label": "text", "placeholder": "" }
+        "type": "StructuredText",
+        "config": {
+          "label": "text",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong"
+        }
       }
     }
   }
