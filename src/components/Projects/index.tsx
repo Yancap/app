@@ -3,7 +3,7 @@ import { Project } from './Project'
 import styles from './scroll.module.css'
 import Image from 'next/image'
 import { getPrismicClient } from '@/services/prismic'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import { ProjectsProps } from '@/pages'
 
 interface IProjectsProps {
@@ -48,8 +48,10 @@ export const Projects = ({projects}: IProjectsProps) => {
         setVerifyWidthIsSmall(false)
     }
   }, [verifyWidthIsSmall])
+  
   return (
     <section className='flex flex-col gap-4' id='project'> 
+        
         <h2 className='text-purple-200 font-bold text-xl sm:text-3xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
             Meus Projetos
         </h2>
@@ -95,7 +97,7 @@ export const Projects = ({projects}: IProjectsProps) => {
   )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
     const prismic = getPrismicClient()
     const response = await prismic.getAllByType("project",
     {
