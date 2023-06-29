@@ -14,7 +14,7 @@ export const Hability = ({tech}: ITechProps) => {
         </h2>
         <div className='flex flex-wrap gap-4'>
             {tech.map(tech => (
-              <Tech tech={tech.tech} text={tech.text}/>
+              <Tech tech={tech.tech} text={tech.text} key={tech.tech}/>
             ))}
         </div>
     </section>
