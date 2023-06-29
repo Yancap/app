@@ -7,12 +7,17 @@ import { getPrismicClient } from '@/services/prismic'
 import { GetStaticProps } from 'next'
 import { RichText } from 'prismic-dom'
 import Head from 'next/head'
+import { ProjectDocument, ProjectDocumentData } from '../../prismicio-types'
 
 interface TechsProjects{
   tech: string;
   image?: string;
 }
-
+export interface TechProps{
+  tech: string;
+  text: string;
+  order: number;
+}
 export interface ProjectProps {
       id: string;
       title: string;
@@ -29,11 +34,16 @@ export interface ServerProps {
   projectsPersonal: ProjectProps[];
   projectsGroup: ProjectProps[];
   about: AboutProps;
+  tech: TechProps[];
 }
 
-export type ProjectsProps = Omit<ServerProps, "about">;
+interface NewProjectsDocuments extends ProjectDocumentData{
+  order: number;
+}
 
-export default function Home({projectsPersonal, projectsGroup, about}: ServerProps) {
+export type ProjectsProps = Omit<ServerProps, "about" | "tech">;
+
+export default function Home({projectsPersonal, projectsGroup, about, tech}: ServerProps) {
   
   return (
     <>
@@ -53,7 +63,7 @@ export default function Home({projectsPersonal, projectsGroup, about}: ServerPro
         </aside>
         <main className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10">
           <About about={about}/>
-          <Hability />
+          <Hability tech={tech}/>
           <Projects projects={{projectsPersonal, projectsGroup}}/>
           <Contact />
         </main>
@@ -68,23 +78,9 @@ interface Link {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient()
   
-  const responseProject = await prismic.getAllByType("project",
-  {
-      fetch: [], 
-      pageSize: 50
-  })
-
-  const responseTechs = await prismic.getAllByType("project",
-  {
-      fetch: [], 
-      pageSize: 50
-  })
-
-  const {results: responseAbout} = await prismic.getByType("about",
-  {
-      fetch: [], 
-      pageSize: 50
-  })
+  const responseProject = await prismic.getAllByType("project", { fetch: [], pageSize: 50 })
+  const responseTechs = await prismic.getAllByType("tech", { fetch: [], pageSize: 50 })
+  const {results: responseAbout} = await prismic.getByType("about", { fetch: [], pageSize: 50 })
 
   
   const [about] = responseAbout.map((response) => {
@@ -92,10 +88,7 @@ export const getStaticProps: GetStaticProps = async () => {
       text: RichText.asHtml(response.data.text)
         .replace(/<p>/g, "<p class='text-base text-white' id='about'>")
         .replace(/<strong>/g, "<strong class='text-red-600 font-medium'>")
-    }
-  })
-
-  console.log(about);
+    }})
   
   const projects = responseProject.map(response => {
     const content = response.data
@@ -108,13 +101,24 @@ export const getStaticProps: GetStaticProps = async () => {
       src: (content.src as Link)?.url || null,
       github: (content.github as Link)?.url || null,
       type: content.type,
+      order: content.order
     }
   })
+  
+  
+  const tech = responseTechs.map(response => {
+    const { data } = response
+    return data
+  }).sort((data, b) => data.order && b.order ? data.order - b.order: 0 )
+  
+  
   const projectsPersonal = projects.filter(project => project.type === 'personal')
+  .sort((project, p) => (project.order && p.order ? -(project.order - p.order) : 0))
   const projectsGroup = projects.filter(project => project.type === 'group')
+  .sort((project, p) => (project.order && p.order ? -(project.order - p.order) : 0))
   
   
   return {
-    props: { projectsPersonal, projectsGroup, about }
+    props: { projectsPersonal, projectsGroup, about, tech }
   }
 }

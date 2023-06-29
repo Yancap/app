@@ -109,6 +109,17 @@ interface ProjectDocumentData {
    *
    */
   type: prismic.KeyTextField;
+  /**
+   * order field in *project*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project.order
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/number
+   *
+   */
+  order: prismic.NumberField;
 }
 /**
  * Item in project → techs

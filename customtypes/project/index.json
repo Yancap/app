@@ -51,6 +51,10 @@
       "type": {
         "type": "Text",
         "config": { "label": "type", "placeholder": "" }
+      },
+      "order": {
+        "type": "Number",
+        "config": { "label": "order", "placeholder": "" }
       }
     }
   }
