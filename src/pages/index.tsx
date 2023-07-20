@@ -4,7 +4,7 @@ import { Contact } from '@/components/Contact'
 import { Hability } from '@/components/Hability'
 import { Projects } from '@/components/Projects'
 import { getPrismicClient } from '@/services/prismic'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { RichText } from 'prismic-dom'
 import Head from 'next/head'
 import { ProjectDocument, ProjectDocumentData } from '../../prismicio-types'
@@ -75,7 +75,7 @@ interface Link {
   link_type: string;
   url?: string;
 }
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const prismic = getPrismicClient()
   
   const responseProject = await prismic.getAllByType("project", { fetch: [], pageSize: 50 })
@@ -119,6 +119,6 @@ export const getStaticProps: GetStaticProps = async () => {
   
   
   return {
-    props: { projectsPersonal, projectsGroup, about, tech }
+    props: { projectsPersonal, projectsGroup, about, tech },
   }
 }
