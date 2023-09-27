@@ -197,6 +197,17 @@ interface TechDocumentData {
    *
    */
   order: prismic.NumberField;
+  /**
+   * level field in *tech*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: tech.level
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/core-concepts/key-text
+   *
+   */
+  level: prismic.KeyTextField;
 }
 /**
  * tech document from Prismic

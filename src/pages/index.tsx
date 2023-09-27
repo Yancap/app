@@ -7,7 +7,7 @@ import { getPrismicClient } from '@/services/prismic'
 import { GetServerSideProps } from 'next'
 import { RichText } from 'prismic-dom'
 import Head from 'next/head'
-import { ProjectDocument, ProjectDocumentData } from '../../prismicio-types'
+import { ProjectDocumentData } from '../../prismicio-types'
 
 interface TechsProjects{
   tech: string;
@@ -17,6 +17,7 @@ export interface TechProps{
   tech: string;
   text: string;
   order: number;
+  level: string;
 }
 export interface ProjectProps {
       id: string;
@@ -57,11 +58,13 @@ export default function Home({projectsPersonal, projectsGroup, about, tech}: Ser
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="grid gap-20 sm:gap-0 sm:grid-cols-2 sm:min-h-screen px-10 relative">
-        <aside className="flex flex-col gap-12 sm:sticky top-0 pt-20 pl-0 sm:h-screen sm:py-20 xl:pl-20 lg:pl-10">
-          <Aside />
-        </aside>
-        <main className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10">
+      <section //className="grid gap-20 sm:gap-0 sm:grid-cols-2 sm:min-h-screen relative mx-auto "
+        className="grid sm:grid-cols-2 gap-6 sm:min-h-screen relative mx-auto w-full container px-4"
+      >
+        <Aside />
+        <main //className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10"
+          className="grid gap-20 py-20"
+        >
           <About about={about}/>
           <Hability tech={tech}/>
           <Projects projects={{projectsPersonal, projectsGroup}}/>

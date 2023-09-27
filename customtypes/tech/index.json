@@ -18,6 +18,10 @@
       "order": {
         "type": "Number",
         "config": { "label": "order", "placeholder": "" }
+      },
+      "level": {
+        "type": "Text",
+        "config": { "label": "level", "placeholder": "" }
       }
     }
   }

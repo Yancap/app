@@ -4,7 +4,7 @@ import React from 'react'
 export const Contact = () => {
   return (
     <footer className='flex flex-col gap-5' id='contact'>
-        <h2 className='text-purple-200 font-bold text-xl sm:text-3xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
+        <h2 className='text-purple-200 font-bold text-2xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
             Contatos
         </h2>
         <nav className='flex flex-col gap-4 '>

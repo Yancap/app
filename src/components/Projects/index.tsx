@@ -49,8 +49,8 @@ export const Projects = ({projects}: IProjectsProps) => {
     }
   }, [verifyWidthIsSmall])
   return (
-    <section className='flex flex-col gap-4' id='project'> 
-        <h2 className='text-purple-200 font-bold text-xl sm:text-3xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
+    <section className='flex flex-col gap-4 max-w-full overflow-x-hidden' id='project'> 
+        <h2 className='text-purple-200 font-bold text-2xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
             Meus Projetos
         </h2>
         {verifyWidthIsSmall ? 
