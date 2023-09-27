@@ -8,6 +8,7 @@ import { GetServerSideProps } from 'next'
 import { RichText } from 'prismic-dom'
 import Head from 'next/head'
 import { ProjectDocumentData } from '../../prismicio-types'
+import { Experience } from '@/components/Experience'
 
 interface TechsProjects{
   tech: string;
@@ -59,13 +60,14 @@ export default function Home({projectsPersonal, projectsGroup, about, tech}: Ser
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section //className="grid gap-20 sm:gap-0 sm:grid-cols-2 sm:min-h-screen relative mx-auto "
-        className="grid sm:grid-cols-2 gap-6 sm:min-h-screen relative mx-auto w-full container px-4"
+        className="grid md:grid-cols-2 gap-6 sm:min-h-screen relative mx-auto w-full lg:max-w-5xl xl:max-w-7xl px-6"
       >
         <Aside />
         <main //className="flex flex-col gap-20 scroll-smooth pb-20 pr-0 sm:py-20 xl:pr-20 lg:pr-10"
           className="grid gap-20 py-20"
         >
           <About about={about}/>
+          <Experience />
           <Hability tech={tech}/>
           <Projects projects={{projectsPersonal, projectsGroup}}/>
           <Contact />

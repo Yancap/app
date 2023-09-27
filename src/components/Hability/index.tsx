@@ -9,7 +9,7 @@ interface ITechProps {
 export const Hability = ({tech}: ITechProps) => {
   return (
     <section className='flex flex-col gap-4 w-full' id='hability'>
-        <h2 className='text-purple-200 font-bold text-2xl border-b-2 border-purple-800 pb-2 sm:pb-0 sm:border-0'>
+        <h2 className='text-purple-200 font-bold text-2xl border-b-2 border-purple-800 pb-2 md:pb-0 md:border-0'>
             Habilidades Técnicas
         </h2>
         <div className='flex flex-col flex-wrap gap-4 pb-2'>

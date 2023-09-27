@@ -26,18 +26,18 @@ export const Aside = () => {
   }, [])
   return (
     <aside //className="flex flex-col gap-12 sm:sticky top-0 pt-20 pl-0 sm:h-screen sm:py-20 xl:pl-20 lg:pl-10"
-      className="flex flex-col justify-evenly gap-16 sm:sticky top-0 sm:h-screen py-16 sm:py-0"
+      className="flex flex-col justify-evenly gap-16 md:sticky top-0 md:h-screen py-16 md:py-0"
     >
         <header>
           <div className='mb-6'>
             <h1 className='text-purple-100 text-5xl font-bold mb-2'>
               Yan Gabriel Ferreira
             </h1>
-            <h3 className='text-purple-200 text-xl'>
+            <h3 className='text-purple-200 text-2xl md:text-xl'>
               Desenvolvedor Web Fullstack
             </h3>
           </div>
-          <p className='text-purple-500 mb-16'>
+          <p className='text-purple-500 mb-16 text-lg md:text-base'>
             Aprimoramento é meu lema diário
           </p>
           <nav>
