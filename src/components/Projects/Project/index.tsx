@@ -1,3 +1,4 @@
+import { Icon } from '@/components/Icon';
 import { ProjectProps } from '@/pages';
 import Image from 'next/image';
 import {  MouseEvent } from 'react'
@@ -15,7 +16,7 @@ export const Project = ({project}: P) => {
         const target = event.target !== event.currentTarget.querySelector('a') && 
         event.target !== event.currentTarget.querySelector('a')?.querySelector('img')
         if (target && src) {
-            window.location.assign(src)
+            window.open(src, "_blank")
         }
     }
   return (
@@ -37,7 +38,7 @@ export const Project = ({project}: P) => {
             {techs?.map(tech => (
                 <div key={tech.tech} className='bg-red-700/10 box-content rounded-full flex items-center justify-center gap-2 h-5 w-fit py-1 px-2'>
                     { tech.image &&
-                        <Image width={18} height={18} src={`/tech/${tech.image}.svg`} alt="" className="h-[1.15rem] w-auto cursor-pointer" />
+                        <Icon icon={tech.image} className="h-[1.15rem] w-auto cursor-pointer" />
                     }
                     <span className='font-medium text-red-400 text-[14px]'>
                         {tech.tech}

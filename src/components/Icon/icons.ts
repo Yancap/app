@@ -1,6 +1,10 @@
 import { IconType } from 'react-icons'
 import { SiNextdotjs, SiReact, SiTypescript, 
-SiNodedotjs, SiJavascript, SiSass, SiStyledcomponents, SiHtml5, SiCss3, SiBootstrap, SiPython, SiGit, SiTailwindcss, SiExpress, SiFastify, SiFigma, SiCsharp, SiAngular, SiNestjs, SiVitest, SiPrisma } from 'react-icons/si'
+SiNodedotjs, SiJavascript, SiSass, SiStyledcomponents, 
+SiHtml5, SiCss3, SiBootstrap, SiPython, SiGit, 
+SiTailwindcss, SiExpress, SiFastify, SiFigma, 
+SiCsharp, SiAngular, SiNestjs, SiVitest, SiPrisma, SiZod, SiChakraui, SiAxios, SiReacthookform, SiReactquery, SiFirebase 
+} from 'react-icons/si'
 import { RiDatabase2Fill } from 'react-icons/ri'
 import { FaJava } from 'react-icons/fa6'
 import { TbBrandReactNative } from 'react-icons/tb'
@@ -36,5 +40,11 @@ export const icons: Icons =  {
     'nestjs': SiNestjs,
     'vitest': SiVitest,
     'mysql': GrMysql,
-    'prismaorm': SiPrisma
+    'prismaorm': SiPrisma,
+    'zod': SiZod,
+    'chakraui': SiChakraui,
+    'axios': SiAxios,
+    'react-hook-forms': SiReacthookform,
+    'react-query': SiReactquery,
+    'firebase': SiFirebase
 }

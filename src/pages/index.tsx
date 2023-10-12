@@ -118,9 +118,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
   
   
   const projectsPersonal = projects.filter(project => project.type === 'personal')
-  .sort((project, p) => (project.order && p.order ? -(project.order - p.order) : 0))
+  .sort((project, p) => (project.order && p.order ? (project.order - p.order) : 0))
   const projectsGroup = projects.filter(project => project.type === 'group')
-  .sort((project, p) => (project.order && p.order ? -(project.order - p.order) : 0))
+  .sort((project, p) => (project.order && p.order ? (project.order - p.order) : 0))
   
   
   return {
