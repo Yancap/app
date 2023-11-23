@@ -16,16 +16,13 @@ export const Experience = () => {
             </h5>
             <div className='md:w-8/12'>
                 <h3 className='text-white text-lg'>
-                    Aplication Developer - <strong>IBM</strong>
+                    Application Developer • <strong>IBM</strong>
                 </h3>
                 <h4 className='text-purple-500 mb-1'>
-                    Estágiario Técnico
+                    Assistant
                 </h4>
                 <p className='text-purple-100 text-[13px]'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus urna eleifend mauris lobortis, 
-                    non pulvinar magna finibus. Integer ut vestibulum leo. Vestibulum ante ipsum primis in faucibus orci luctus
-                    et ultrices posuere cubilia curae; Nunc nec est non eros elementum rhoncus dignissim sit amet nunc. 
-                    Fusce vulputate.
+                    
                 </p>
                 <div className='flex flex-wrap gap-2 py-4'>
                     <Tech text='Angular' tech='angular'/>
@@ -43,16 +40,14 @@ export const Experience = () => {
             </h5>
             <div className='md:w-8/12'>
                 <h3 className='text-white text-lg'>
-                    Developer - <strong>IBM</strong>
+                    Estágiario Técnico • <strong>IBM</strong>
                 </h3>
                 <h4 className='text-purple-500 mb-1'>
-                    Estágiario Técnico
+                    Intern
                 </h4>
                 <p className='text-purple-100 text-[13px]'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam maximus urna eleifend mauris lobortis, 
-                    non pulvinar magna finibus. Integer ut vestibulum leo. Vestibulum ante ipsum primis in faucibus orci luctus
-                    et ultrices posuere cubilia curae; Nunc nec est non eros elementum rhoncus dignissim sit amet nunc. 
-                    Fusce vulputate.
+                    Estudei as tecnologias abaixo, realizei mini-projetos e desafios práticos e me especializei em 
+                    Angular e Java.
                 </p>
                 <div className='flex flex-wrap gap-2 py-4'>
                     <Tech text='React' tech='react'/>
